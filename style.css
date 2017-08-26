@@ -6,3 +6,30 @@
   max-height: 400px;
   overflow: auto;
 }
+
+#listingTableHTML tr:hover {
+  background-color: #bfbfbf;
+}
+
+#formContent {
+    display: none;
+    position: absolute;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10;
+    border: 0.5px solid #008;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#removeListingButton {
+    background-color: rgba(511,0,0,0.8);
+    border-color: rgba(511,0,0,0.8);
+}
+
+#addListingButton {
+    position: relative;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
