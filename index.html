@@ -21,6 +21,8 @@
             <input type="text" class="form-control" ng-model="searchText" placeholder="Search">
           </div>
           <div class="tableWrapper">
+            <!-- Note: took out table-striped because it didn't appear to have
+                 the desired effect [all rows gray]. Also made my own style for the hover -->
             <table class="table" id="mainTable">
               <tr>
                 <th>Code</th>
@@ -38,7 +40,8 @@
                   <tr ng-click="showDetails(x)">
                     <td title="Click to Show Detailed Information">{{x.code}}</td>
                     <td title="Click to Show Detailed Information">{{x.name}}</td>
-                    <td title="Click to Remove Entry"><input type="button" class="btn btn-primary" value="Remove" ng-click="deleteListing(x)" id="removeListingButton" /></td>
+                    <!-- <td title="Click to Remove Entry"><input type="button" class="btn btn-primary" value="Remove" ng-click="deleteListing(x)" id="removeListingButton" /></td> -->
+                    <td title="Click to Remove Entry"><button type="button" class="btn btn-primary" ng-click="deleteListing(x)" id="removeListingButton">Remove <span class="glyphicon glyphicon-remove"></span></button></td>
                   </tr>
                 </tbody>
             </table>
@@ -69,11 +72,12 @@
               </tbody>
             </table>
           </div>
-          <input type="button" class="btn btn-primary" id="addListingButton" onclick="showForm()" value="Add a Listing" />
+          <!-- <input type="button" class="btn btn-primary" id="addListingButton" onclick="showForm()" value="Add a Listing" /> -->
+          <button type="button" class="btn btn-primary" id="addListingButton" title="Click to Toggle Visibility of Add Listing Form" onclick="showForm()">Add a Listing <span class="glyphicon glyphicon-plus"></span></button>
           <br>
           <div id="formWrapper">
             <form id="formContent" ng-submit="addListing()">
-              <label>Code: </label>
+              <label>Code:  </label>
               <input type=text ng-model="newListing.code" required /> <br />
 
               <label>Name: </label>
