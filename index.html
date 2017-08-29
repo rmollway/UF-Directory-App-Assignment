@@ -21,9 +21,7 @@
             <input type="text" class="form-control" ng-model="searchText" placeholder="Search">
           </div>
           <div class="tableWrapper">
-            <!-- Note: took out table-striped because it didn't appear to have
-                 the desired effect [all rows gray]. Also made my own style for the hover -->
-            <table class="table" id="mainTable">
+            <table class="table">
               <tr>
                 <th>Code</th>
                 <th>Building Name</th>
@@ -36,14 +34,12 @@
                       * include a way to remove individual listings
 
                 -->
-              <tr class="selected-{{x.isClicked}}" ng-repeat="x in listings | filter:searchText | orderBy : 'code'" id="listingTableHTML" ng-click="showDetails(x)">
-                <td title="Click to Show Detailed Information">{{x.code}}</td>
-                <td title="Click to Show Detailed Information">{{x.name}}</td>ß
-                <td title="Click to Remove Entry"><button type="button" class="btn btn-primary" ng-click="deleteListing(x)" id="removeListingButton"><span class="glyphicon glyphicon-remove-circle"></span> Remove</button></td>
-              </tr>
+                <tr class="selected-{{x.isClicked}}" ng-repeat="x in listings | filter:searchText " ng-click="showDetails(x)" id="listingTableHTML">
+                  <td title="Click to Show Detailed Information">{{x.code}}</td>
+                  <td title="Click to Show Detailed Information">{{x.name}}</td>
+                  <td title="Click to Remove Entry"><button type="button" class="btn btn-primary" ng-click="deleteListing(x)" id="removeListingButton"><span class="glyphicon glyphicon-remove-circle"></span> Remove</button></td>
+                </tr>
             </table>
-
-
           </div>
           <!--
 
