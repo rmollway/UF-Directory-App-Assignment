@@ -36,14 +36,11 @@
                       * include a way to remove individual listings
 
                 -->
-                <tbody ng-repeat="x in listings | filter:searchText | orderBy : 'code'" id="listingTableHTML">
-                  <tr ng-click="showDetails(x)">
-                    <td title="Click to Show Detailed Information">{{x.code}}</td>
-                    <td title="Click to Show Detailed Information">{{x.name}}</td>
-                    <!-- <td title="Click to Remove Entry"><input type="button" class="btn btn-primary" value="Remove" ng-click="deleteListing(x)" id="removeListingButton" /></td> -->
-                    <td title="Click to Remove Entry"><button type="button" class="btn btn-primary" ng-click="deleteListing(x)" id="removeListingButton">Remove <span class="glyphicon glyphicon-remove"></span></button></td>
-                  </tr>
-                </tbody>
+              <tr class="selected-{{x.isClicked}}" ng-repeat="x in listings | filter:searchText | orderBy : 'code'" id="listingTableHTML" ng-click="showDetails(x)">
+                <td title="Click to Show Detailed Information">{{x.code}}</td>
+                <td title="Click to Show Detailed Information">{{x.name}}</td>ß
+                <td title="Click to Remove Entry"><button type="button" class="btn btn-primary" ng-click="deleteListing(x)" id="removeListingButton"><span class="glyphicon glyphicon-remove-circle"></span> Remove</button></td>
+              </tr>
             </table>
 
 
@@ -65,15 +62,15 @@
              -->
             <table>
               <tbody>
-                <tr><td>Code: {{detailedInfo.code}}</td></tr>
-                <tr><td>Name: {{detailedInfo.name}}</td></tr>
-                <tr><td>Coordinates [Lat, Lon]: [{{detailedInfo.coordinates.latitude}} , {{detailedInfo.coordinates.longitude}}]</td></tr>
-                <tr><td>Address: {{detailedInfo.address}}</td></tr>
+                <tr><td class="detailedCode-{{detailedInfo.code}}"><span class="glyphicon glyphicon-tag"></span> {{detailedInfo.code}}</td></tr>
+                <tr><td class="detailedName-{{detailedInfo.name}}"><span class="glyphicon glyphicon-user"></span> {{detailedInfo.name}}</td></tr>
+                <tr><td class="detailedCoord-{{detailedInfo.coordinates}}"><span class="glyphicon glyphicon-globe"></span> [{{detailedInfo.coordinates.latitude}} , {{detailedInfo.coordinates.longitude}}]</td></tr>
+                <tr><td class="detailedAddr-{{detailedInfo.address}}"><span class="glyphicon glyphicon-home"></span> {{detailedInfo.address}}</td></tr>
               </tbody>
             </table>
           </div>
-          <!-- <input type="button" class="btn btn-primary" id="addListingButton" onclick="showForm()" value="Add a Listing" /> -->
-          <button type="button" class="btn btn-primary" id="addListingButton" title="Click to Toggle Visibility of Add Listing Form" onclick="showForm()">Add a Listing <span class="glyphicon glyphicon-plus"></span></button>
+
+          <button type="button" class="btn btn-primary" id="addListingButton" title="Click to Toggle Visibility of Add Listing Form" onclick="showForm()"><span class="glyphicon glyphicon-plus"></span> Add a Listing</button>
           <br>
           <div id="formWrapper">
             <form id="formContent" ng-submit="addListing()">

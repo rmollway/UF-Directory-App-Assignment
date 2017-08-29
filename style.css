@@ -7,6 +7,14 @@
   overflow: auto;
 }
 
+.selected-true {
+  background-color: rgb(51,122,183);
+}
+
+.detailedCoord- , .detailedAddr- , .detailedName- , .detailedCode- {
+  visibility: hidden;
+}
+
 #listingTableHTML tr:hover {
   background-color: #bfbfbf;
 }
